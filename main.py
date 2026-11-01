@@ -35,7 +35,7 @@ def info():
         print("Em breve")
         return
     elif op == 4:
-        print("Em breve")
+        os.startfile(LOG_BACKUP)
         return
     else:
         print("Opção inválida\n")
