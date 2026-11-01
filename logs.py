@@ -9,3 +9,11 @@ def geraLogs(message):
         txt.write(message)
 
     print("\r" + " " * 50 + "\rBackup realizado!\n")
+
+def logInicial():
+    with open(fr"{LOG_BACKUP}", "a", encoding="utf-8") as txt:
+        txt.write("\n--- Backup em sequência iniciado ---")
+
+def logFinal(): 
+    with open(fr"{LOG_BACKUP}", "a", encoding="utf-8") as txt:
+        txt.write("\n--- Backup em sequência finalizado ---")
