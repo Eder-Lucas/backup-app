@@ -1,5 +1,7 @@
 from datetime import datetime
 from config import ORIGEM01, ORIGEM02, DESTINO01, DESTINO02, LOG_BACKUP
+from remove import remove
+from copia import copia
 import shutil
 import os
 import stat
@@ -16,7 +18,6 @@ def menu():
     print("[ 3 ] Todos")
     print("[ 4 ] Consultar logs")
 
-
 def info():
     menu()
     op = int(input("> "))
@@ -25,23 +26,11 @@ def info():
     message = ""
 
     if op == 1:
-        print("Removendo backup antigo", end="")
-        shutil.rmtree(DESTINO01, onexc=apagar)
-
-        print("\r" + " " * 40 + "\rCopiando...", end="", flush=True)
-
-        shutil.copytree(ORIGEM01, DESTINO01, ignore=shutil.ignore_patterns('.git'))
-
-        message = f"\n{data}: itsMe salva no backup"
+        remove(DESTINO01)
+        message = copia(data, ORIGEM01, DESTINO01, "ESTUDOS")
     elif op == 2:
-        print("Removendo backup antigo", end="")
-        shutil.rmtree(DESTINO02, onexc=apagar)
-
-        print("\r" + " " * 40 + "\rCopiando...", end="", flush=True)
-
-        shutil.copytree(ORIGEM02, DESTINO02, ignore=shutil.ignore_patterns('.git'))
-
-        message = f"\n{data}: itsMe salva no backup"
+        remove(DESTINO02)
+        message = copia(data, ORIGEM02, DESTINO02, "itsMe")
     elif op == 3:
         print("Em breve")
         return
