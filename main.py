@@ -2,14 +2,8 @@ from datetime import datetime
 from config import ORIGEM01, ORIGEM02, DESTINO01, DESTINO02, LOG_BACKUP
 from remove import remove
 from copia import copia
-import shutil
 import os
-import stat
 import time
-
-def apagar(func, caminho, exc_func):
-    os.chmod(caminho, stat.S_IWRITE)
-    func(caminho)
 
 def menu():
     print("=== BACKUP PREVENTIVO ===")
