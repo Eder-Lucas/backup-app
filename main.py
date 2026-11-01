@@ -2,8 +2,8 @@ from datetime import datetime
 from config import ORIGEM01, ORIGEM02, DESTINO01, DESTINO02, LOG_BACKUP
 from remove import remove
 from copia import copia
+from logs import geraLogs
 import os
-import time
 
 def menu():
     print("=== BACKUP PREVENTIVO ===")
@@ -35,13 +35,7 @@ def info():
         print("Opção inválida\n")
         return
 
-    print("\r" + " " * 50 + "\rRegistrando Log", end="", flush=True)
-    time.sleep(1)
-
-    with open(fr"{LOG_BACKUP}", "a", encoding="utf-8") as txt:
-        txt.write(message)
-
-    print("\r" + " " * 50 + "\rBackup realizado!\n")
+    geraLogs(message)
 
 while True:
     info()
