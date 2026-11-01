@@ -3,6 +3,7 @@ from config import ORIGEM01, ORIGEM02, DESTINO01, DESTINO02, LOG_BACKUP
 from remove import remove
 from copia import copia
 from logs import geraLogs
+from todos import todos
 import os
 
 def menu():
@@ -27,7 +28,7 @@ def opcoes():
         remove(DESTINO02)
         message = copia(data, ORIGEM02, DESTINO02, "itsMe")
     elif op == 3:
-        print("Em breve")
+        todos(data)
         return
     elif op == 4:
         os.startfile(LOG_BACKUP)
