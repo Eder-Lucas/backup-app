@@ -12,11 +12,12 @@ def menu():
     print("[ 3 ] Todos")
     print("[ 4 ] Consultar logs")
 
-def info():
+data = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+
+def opcoes():
     menu()
     op = int(input("> "))
-
-    data = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+    
     message = ""
 
     if op == 1:
@@ -38,4 +39,4 @@ def info():
     geraLogs(message)
 
 while True:
-    info()
+    opcoes()
